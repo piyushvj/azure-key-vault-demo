@@ -1,0 +1,257 @@
+Slide 1: Title
+	Title : Securing Secrets with azure key vaults
+	Subtitle : Centralized key management for azure and beyond
+
+Slide 2: Agenda
+	• Introduction :
+		○ Brief overview of the importance of secure key management.
+			§ Secure key management is a integral to the broader field of cybersecurity, providing the foundation for encryption, authentication and data protection.
+			§ Secure key management is a critical aspect of information security and plays a pivotal role in safeguarding sensitive data, protecting digital assets, and ensuring the integrity and confidentiality of information.
+			§ Proper key management ensures that encryption keys are kept confidential and are not compromised, thereby protecting sensitive information. Only authorized individuals or systems can decrypt and access protected data.
+			§ Many industries and jurisdictions have specific regulations and compliance standards regarding data protection and privacy. Secure key management is often a requirement for compliance with these regulations, ensuring that organizations meet legal and industry-specific obligations.
+
+		○ Overview of azure key vault.
+			§ Azure key Vault is a cloud service provided by Microsoft Azure.
+			§ Azure key vault allows you to securely store and manage sensitive information such as secrets, encryption keys and certificates in a centralized location.
+			§ Azure key vault seamlessly integrates with various azure services, enabling applications to securely access keys and secrets without exposing sensitive information in code or configuration files.
+			§ Azure key vault supports Role based access control (RBAC), allowing you to control access to keys and secrets based on roles assigned to user and applications.
+			§ Azure key vault provides REST APIs and client libraries for various programming languages, making it easy for developers to integrate key vault capabilities into their applications and services.
+			§ Azure key vault follows a pay-as-you-go pricing model, making it cost-effective for businesses of all sizes.
+
+
+
+Use Case : Securing Application Secrets
+
+Scenario:
+Imagine you have a web application hosted on Azure that requires sensitive information, such as API keys, connection strings, and passwords, to operate. Storing these secrets directly in the application code or configuration files poses security risks, especially in scenarios where the source code is accessible or shared among team members.
+
+Solution with Azure Key Vault:
+	1. Secrets Storage:
+	• Use Azure Key Vault to securely store and manage application secrets. These can include database connection strings, API keys, and other sensitive information.
+
+	2. Integration with Azure Services:
+	• Integrate Azure Key Vault with your web application. Azure Key Vault seamlessly integrates with various Azure services, making it easy to retrieve secrets securely.
+
+	3. Access Control:
+	• Define access policies and configure RBAC in Azure Key Vault to control who can access specific secrets. This ensures that only authorized users or applications can retrieve sensitive information.
+
+	4. Secrets Retrieval in Code:
+	• Modify your web application code to retrieve secrets from Azure Key Vault during runtime. Instead of hardcoding secrets, the application fetches them dynamically from the key vault.
+	5. Rotation and Versioning:
+	• Leverage Azure Key Vault's key rotation capabilities. Regularly rotate secrets to enhance security. Azure Key Vault also supports versioning, allowing you to manage updates and rollbacks.
+
+	6. Auditing and Monitoring:
+	• Enable auditing in Azure Key Vault to track operations performed on secrets. This provides visibility into who accessed or modified sensitive information, supporting compliance and security monitoring.
+
+Benefits
+
+	• Enhanced Security:
+		○ Sensitive information is not exposed in source code or configuration files, reducing the risk of accidental exposure or unauthorized access.
+	• Centralized Management:
+		○ All secrets are centrally managed in Azure Key Vault, providing a single, secure location for sensitive information.
+	• Dynamic Retrieval:
+		○ Secrets are fetched dynamically during runtime, ensuring that the latest version of secrets is used and supporting dynamic updates.
+	• Access Control and Compliance:
+		○ RBAC and access policies in Azure Key Vault allow fine-grained control over who can access secrets, enhancing compliance with security policies.
+	• Auditing and Monitoring:
+		○ Azure Key Vault's auditing capabilities provide a trail of operations, supporting compliance audits and security monitoring.
+
+Potential Disadvantages or challenges
+
+While Azure Key Vault offers a robust solution for secure key management, it's essential to be aware of potential disadvantages or challenges associated with its use. Here are some considerations:
+	1. Cost:
+		○ Issue: Azure Key Vault incurs costs based on usage. Depending on the scale and frequency of key operations, the costs can accumulate.
+		○ Mitigation: Organizations should carefully plan and monitor their usage to optimize costs. Utilizing Azure Pricing Calculator can help estimate costs.
+	2. Rate Limits:
+		○ Issue: Azure Key Vault imposes rate limits on various operations, and exceeding these limits can result in throttling.
+		○ Mitigation: Organizations should be aware of rate limits and design applications to handle potential throttling gracefully. Azure provides guidance on managing these limits.
+	3. Latency and Network Dependencies:
+		○ Issue: Accessing Azure Key Vault introduces network latency, and application performance may be impacted.
+		○ Mitigation: Consider the geographical location of key vaults concerning application deployment. Additionally, caching mechanisms can be implemented to mitigate latency issues.
+	4. Soft Delete Retention Period:
+		○ Issue: Soft-deleted keys and secrets in Azure Key Vault are retained for a specific period before permanent deletion.
+		○ Mitigation: Organizations should be aware of and plan for the soft-delete retention period. This period can impact recovery options and compliance.
+	5. Limited Key Operations:
+		○ Issue: Certain cryptographic operations, especially those requiring direct interaction with hardware security modules (HSMs), may have some limitations in terms of supported algorithms or performance.
+		○ Mitigation: Organizations should ensure compatibility with the supported algorithms and consider alternatives for specific use cases.
+	6. Dependency on Azure Services:
+		○ Issue: Azure Key Vault relies on the availability of Azure services and infrastructure. Service outages or disruptions may impact the ability to access keys.
+		○ Mitigation: Plan for redundancy and availability considerations. Organizations can leverage multiple Azure regions for high availability.
+	7. Management Overhead:
+		○ Issue: While Azure Key Vault simplifies key management, it introduces an additional service to be managed and maintained.
+		○ Mitigation: Organizations should allocate resources for the ongoing management, monitoring, and maintenance of Azure Key Vault instances.
+	8. Learning Curve:
+		○ Issue: Implementing Azure Key Vault effectively may require a learning curve, especially for users unfamiliar with Azure services.
+		○ Mitigation: Invest in training and documentation to ensure that teams are well-equipped to manage and utilize Azure Key Vault efficiently.
+	9. Integration Complexity:
+		○ Issue: Integrating Azure Key Vault into existing applications or workflows may require changes to code and configurations.
+		○ Mitigation: Plan for integration efforts and consider using Azure SDKs and APIs to simplify the integration process.
+
+
+
+	Section 1: Understanding Azure key vault (slides 3 - 8)
+
+Slide 3:   What is azure key vault ?
+	• Definition and purpose of azure key vault.
+	• Importance of secure storage for sensitive information
+Slide 4:  Key Vault features
+	• Centralized key management
+	• Securely storing and managing secrets, keys and certificates.
+	• Integration with Azure Active Directory
+Slide 5: Use Cases for Azure Key Vault
+	• Securing application secrets.
+	• Storing cryptographic keys.
+	• Managing certificates for secure communication.
+Slide 6: Key Vault Components
+	• Vaults, Secrets, Keys, and Certificates.
+	• Access policies and role-based access control (RBAC).
+Slide 7: Integration with Azure Services
+	• Seamless integration with Azure services (e.g., Azure Functions, Azure App Service).
+	• Simplifying key management in cloud applications.
+Slide 8: Compliance and Auditing
+	• Meeting compliance standards (e.g., GDPR, HIPAA).
+	• Auditing capabilities for tracking access and changes.
+
+Section 2: Hands-On with Azure Key Vault (Slides 9-14)
+
+Slide 9: Creating an Azure Key Vault
+	• Live demonstration or step-by-step guide on creating a Key Vault in the Azure Portal.
+Slide 10: Adding Secrets to Key Vault
+	• Demonstrating how to add secrets programmatically and through the Azure Portal.
+
+
+
+
+
+
+
+
+
+
+References : Steps to Connect Azure Key Vault with Springboot | Get Secrets From Azure KeyVault Using SpringBoot
+
+
+
+
+
+az ad sp create-for-rbac -n piyushvj-keyvault --skip-assignment
+
+{
+  "appId": "e4a46da6-08e4-4495-a9ce-69ca7e4981e4",
+  "displayName": "piyushvj-keyvault",
+  "password": "Vra8Q~u~If4iaKUlp1Igznvi2MDKSry49VAnMauS",
+  "tenant": "55762775-f99f-4e34-89f4-20c6ff2984da"
+}
+
+
+appId, AZURECLIENTID : e4a46da6-08e4-4495-a9ce-69ca7e4981e4
+password, AZURECLIENTSECRET : Vra8Q~u~If4iaKUlp1Igznvi2MDKSry49VAnMauS
+tenant, AZURETENANTID : 55762775-f99f-4e34-89f4-20c6ff2984da
+
+
+az keyvault set-policy --name piyushvj-keyvault --spn e4a46da6-08e4-4495-a9ce-69ca7e4981e4 --secret-permissions backup delete get list set
+
+{
+  "id": "/subscriptions/e88fcdbd-2613-46ad-b4d9-24074c96e363/resourceGroups/piyushvj-spring-resource-group/providers/Microsoft.KeyVault/vaults/piyushvj-keyvault",
+  "location": "eastus",
+  "name": "piyushvj-keyvault",
+  "properties": {
+    "accessPolicies": [
+      {
+        "applicationId": null,
+        "objectId": "6ca56933-6c4b-43b7-8875-6119b3812f5a",
+        "permissions": {
+          "certificates": [
+            "Get",
+            "List",
+            "Update",
+            "Create",
+            "Import",
+            "Delete",
+            "Recover",
+            "Backup",
+            "Restore",
+            "ManageContacts",
+            "ManageIssuers",
+            "GetIssuers",
+            "ListIssuers",
+            "SetIssuers",
+            "DeleteIssuers"
+          ],
+          "keys": [
+            "Get",
+            "List",
+            "Update",
+            "Create",
+            "Import",
+            "Delete",
+            "Recover",
+            "Backup",
+            "Restore",
+            "GetRotationPolicy",
+            "SetRotationPolicy",
+            "Rotate"
+          ],
+          "secrets": [
+            "Get",
+            "List",
+            "Set",
+            "Delete",
+            "Recover",
+            "Backup",
+            "Restore"
+          ],
+          "storage": null
+        },
+        "tenantId": "55762775-f99f-4e34-89f4-20c6ff2984da"
+      },
+      {
+        "applicationId": null,
+        "objectId": "66450108-d3a9-4094-ae90-03741f7c6c10",
+        "permissions": {
+          "certificates": null,
+          "keys": null,
+          "secrets": [
+            "list",
+            "get",
+            "delete",
+            "backup",
+            "set"
+          ],
+          "storage": null
+        },
+        "tenantId": "55762775-f99f-4e34-89f4-20c6ff2984da"
+      }
+    ],
+    "createMode": null,
+    "enablePurgeProtection": null,
+    "enableRbacAuthorization": false,
+    "enableSoftDelete": true,
+    "enabledForDeployment": true,
+    "enabledForDiskEncryption": true,
+    "enabledForTemplateDeployment": true,
+    "hsmPoolResourceId": null,
+    "networkAcls": null,
+    "privateEndpointConnections": null,
+    "provisioningState": "Succeeded",
+    "publicNetworkAccess": "Enabled",
+    "sku": {
+      "family": "A",
+      "name": "Standard"
+    },
+    "softDeleteRetentionInDays": 10,
+    "tenantId": "55762775-f99f-4e34-89f4-20c6ff2984da",
+    "vaultUri": "https://piyushvj-keyvault.vault.azure.net/"
+  },
+  "resourceGroup": "piyushvj-spring-resource-group",
+  "systemData": {
+    "createdAt": "2023-12-13T11:21:45.404000+00:00",
+    "createdBy": "piyushvijayvargiya@live.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2023-12-14T08:39:04.205000+00:00",
+    "lastModifiedBy": "piyushvijayvargiya@live.com",
+    "lastModifiedByType": "User"
+  },
+  "tags": {},
+  "type": "Microsoft.KeyVault/vaults"
+}
